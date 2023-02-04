@@ -7,17 +7,13 @@ namespace Enemy.State
     {
         public override void EnterState(EnemyStateManager enemyStateManager)
         {
-            
         }
 
         public override void UpdateState(EnemyStateManager enemyStateManager)
         {
-            
-
             if (Vector3.Distance(enemyStateManager.transform.position, GameManager.Instance.Player.position) <=
                 enemyStateManager.AttackDistance)
             {
-                Debug.Log("Attack");
                 AttemptAttack(enemyStateManager);
             }
             else
