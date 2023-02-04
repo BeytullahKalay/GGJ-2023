@@ -7,6 +7,7 @@ namespace Enemy.State
     {
         public override void EnterState(EnemyStateManager enemyStateManager)
         {
+            
         }
 
         public override void UpdateState(EnemyStateManager enemyStateManager)
@@ -16,10 +17,7 @@ namespace Enemy.State
             if (Vector3.Distance(enemyStateManager.transform.position, GameManager.Instance.Player.position) <=
                 enemyStateManager.AttackDistance)
             {
-                Debug.Log("Attack"); 
-                
-                //RotateToPlayer();
-                
+                Debug.Log("Attack");
                 AttemptAttack(enemyStateManager);
             }
             else
@@ -27,14 +25,6 @@ namespace Enemy.State
                 enemyStateManager.SwitchState(enemyStateManager.MoveState);
             }
         }
-
-        // private void RotateToPlayer(Transform unitTransform)
-        // {
-        //     var direction = GameManager.Instance.Player.position - unitTransform.position;
-        //     direction.y = 0;
-        //     unitTransform.rotation = Quaternion.Lerp(unitTransform.rotation,
-        //         Quaternion.LookRotation(Vector3.forward, Vector3.up), 4 * Time.deltaTime);
-        // }
 
         private void AttemptAttack(EnemyStateManager enemyStateManager)
         {
