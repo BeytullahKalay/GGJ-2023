@@ -10,7 +10,7 @@ namespace Player
         private IMovementInput _movementInput;
         //private IAttackInput _attackInput;
         private PlayerMovement _playerMovement;
-        private PlayerHealthSystem _playerHealthSystem;
+        //private PlayerHealthSystem _playerHealthSystem;
         
         
         private void Awake()
@@ -18,10 +18,11 @@ namespace Player
             _movementInput = GetComponent<IMovementInput>();
             //_attackInput = GetComponent<IAttackInput>();
             _playerMovement = GetComponent<PlayerMovement>();
-            _playerHealthSystem = GetComponent<PlayerHealthSystem>();
+            //_playerHealthSystem = GetComponent<PlayerHealthSystem>();
         }
 
-        
+
+
         private void FixedUpdate()
         {
             _playerMovement.Move(_movementInput.MoveVector3);
