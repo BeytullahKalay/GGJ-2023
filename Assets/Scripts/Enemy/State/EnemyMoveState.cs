@@ -1,5 +1,4 @@
 using Managers;
-using UnityEngine;
 
 namespace Enemy.State
 {
@@ -15,6 +14,7 @@ namespace Enemy.State
             if (enemyStateManager.Agent.remainingDistance <= enemyStateManager.AttackDistance)
             {
                 enemyStateManager.SwitchState(enemyStateManager.AttackState);
+                enemyStateManager.EnemyAnimationController.SetAnimatorSpeedValue(enemyStateManager.Agent.speed);
             }
             else
             {

@@ -361,7 +361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 250826925}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1162,6 +1162,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855309880}
   m_CullTransparentMesh: 1
+--- !u!1 &1087557272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1087557273}
+  m_Layer: 7
+  m_Name: hitPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1087557273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087557272}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1897995747364771962}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1144057862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2079,7 +2110,7 @@ GameObject:
   - component: {fileID: 5866666020502992309}
   - component: {fileID: 5866666020502992310}
   - component: {fileID: 5866666020502992311}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2219,10 +2250,11 @@ GameObject:
   - component: {fileID: 5527928604377006592}
   - component: {fileID: 5527928604377006593}
   - component: {fileID: 5527928604377006595}
-  - component: {fileID: 5527928604377006594}
   - component: {fileID: 5527928604377006596}
+  - component: {fileID: 5527928604377006594}
   - component: {fileID: 5527928604377006597}
   - component: {fileID: 5527928604377006598}
+  - component: {fileID: 5527928604377006599}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -2249,7 +2281,7 @@ GameObject:
   - component: {fileID: 5985387040161176845}
   - component: {fileID: 4716807992478745939}
   - component: {fileID: 9040675537685709516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: character_knightArmLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2270,6 +2302,7 @@ Transform:
   m_Children:
   - {fileID: 3205483904880258666}
   - {fileID: 784564259}
+  - {fileID: 1087557273}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2297,7 +2330,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4763357651066553519}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: armRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2313,7 +2346,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8449507075803396907}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: handSlotRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2375,7 +2408,7 @@ GameObject:
   - component: {fileID: 2987795473156946791}
   - component: {fileID: 1367656409709861616}
   - component: {fileID: 7609526572610085346}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: character_knightHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2537,7 +2570,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6662217765227254745}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2964,6 +2997,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b98d59ea7ac2840a7d30c641252807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5527928604377006599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233099812762632896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d60bc16ebb12f9f4a8b71768cc74cc3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 15
+  attackPoint: {fileID: 1087557273}
+  attackPointRadius: 0.8
+  whatIsHitLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &5531711091927283773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2975,7 +3026,7 @@ GameObject:
   - component: {fileID: 5156416250562847367}
   - component: {fileID: 8079632381362220322}
   - component: {fileID: 6324295905080400360}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sword_uncommon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3037,7 +3088,7 @@ GameObject:
   - component: {fileID: 7367515592725380985}
   - component: {fileID: 2492267422900611620}
   - component: {fileID: 5583779017708251613}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: character_knightArmRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3202,7 +3253,7 @@ MonoBehaviour:
   damage: 25
   attackPoint: {fileID: 250826925}
   attackPointRadius: 0.8
-  whatIsEnemyLayer:
+  whatIsHitLayer:
     serializedVersion: 2
     m_Bits: 128
 --- !u!114 &5866666020502992310
@@ -3332,7 +3383,7 @@ GameObject:
   - component: {fileID: 6321860017026657048}
   - component: {fileID: 6923186726262367421}
   - component: {fileID: 5183905870471336055}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3389,7 +3440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8002992880015695268}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: armLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3511,7 +3562,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8634742143775870572}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3714,7 +3765,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7282027740272394519}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: handSlotLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3808,7 +3859,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3576309790473525697}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: KayKit Animated Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
