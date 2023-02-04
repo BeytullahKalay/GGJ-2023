@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 namespace AbstractClasses
 {
+    [RequireComponent(typeof(Rigidbody))]
     public abstract class HealthSystem : MonoBehaviour, IHealthSystem
     {
 
@@ -56,7 +57,7 @@ namespace AbstractClasses
             rb.isKinematic = true;
             coll.enabled = false;
             slider.gameObject.SetActive(false);
-            Debug.Log("Game Over");
+            Debug.Log( transform.name +" is Dead");
         }
     }
 }

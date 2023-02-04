@@ -5,7 +5,7 @@ namespace Player
 {
     public class PlayerAttackSystem : MonoBehaviour
     {
-        [SerializeField] private int damage = 1;
+        [SerializeField] private int damage = 25;
         [SerializeField] private Transform attackPoint;
         [SerializeField] private float attackPointRadius = 4f;
         [SerializeField] private LayerMask whatIsEnemyLayer;
@@ -13,12 +13,11 @@ namespace Player
         // used by animation event
         public void Attack()
         {
-            var colliders = Physics.OverlapSphere(attackPoint.position, attackPointRadius);
-
+            var colliders = Physics.OverlapSphere(attackPoint.position, attackPointRadius, whatIsEnemyLayer);
+            
             foreach (var col in colliders)
             {
-                if (col.gameObject.layer == whatIsEnemyLayer)
-                    col.GetComponent<HealthSystem>().TakeDamage?.Invoke(damage);
+                col.GetComponent<HealthSystem>().TakeDamage?.Invoke(damage);
             }
         }
 

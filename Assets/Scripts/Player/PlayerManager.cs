@@ -1,4 +1,5 @@
 using Interfaces;
+using Managers;
 using UnityEngine;
 
 namespace Player
@@ -10,6 +11,7 @@ namespace Player
 
         private PlayerMovement _playerMovement;
         private PlayerAnimationController _playerAnimationController;
+        private PlayerCombatManager _playerCombatManager;
 
         private void Awake()
         {
@@ -17,12 +19,13 @@ namespace Player
             _attackInput = GetComponent<IAttackInput>();
             _playerMovement = GetComponent<PlayerMovement>();
             _playerAnimationController = GetComponent<PlayerAnimationController>();
+            _playerCombatManager = GetComponent<PlayerCombatManager>();
         }
 
         private void Update()
         {
-            _playerAnimationController.CheckAttack(_attackInput.AttackKey);
             _playerAnimationController.SetAnimatorSpeedValue(_playerMovement.GetSpeed(_movementInput.MoveVector3));
+            _playerCombatManager.AttemptAttack(_attackInput.AttackKey);
         }
 
         private void FixedUpdate()
