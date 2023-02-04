@@ -18,5 +18,10 @@ namespace Player
         {
             _rb.velocity = moveVector * moveSpeed;
         }
+
+        public float GetSpeed(Vector3 moveVector)
+        {
+            return moveVector.magnitude;
+        }
     }
 }

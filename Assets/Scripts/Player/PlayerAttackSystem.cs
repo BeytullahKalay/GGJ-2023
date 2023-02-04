@@ -10,6 +10,7 @@ namespace Player
         [SerializeField] private float attackPointRadius = 4f;
         [SerializeField] private LayerMask whatIsEnemyLayer;
 
+        // used by animation event
         public void Attack()
         {
             var colliders = Physics.OverlapSphere(attackPoint.position, attackPointRadius);

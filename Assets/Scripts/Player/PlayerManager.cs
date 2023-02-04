@@ -3,25 +3,27 @@ using UnityEngine;
 
 namespace Player
 {
-    [RequireComponent(typeof(PlayerMovement))]
-    [RequireComponent(typeof(PlayerHealthSystem))]
     public class PlayerManager : MonoBehaviour
     {
         private IMovementInput _movementInput;
-        //private IAttackInput _attackInput;
+        private IAttackInput _attackInput;
+
         private PlayerMovement _playerMovement;
-        //private PlayerHealthSystem _playerHealthSystem;
-        
-        
+        private PlayerAnimationController _playerAnimationController;
+
         private void Awake()
         {
             _movementInput = GetComponent<IMovementInput>();
-            //_attackInput = GetComponent<IAttackInput>();
+            _attackInput = GetComponent<IAttackInput>();
             _playerMovement = GetComponent<PlayerMovement>();
-            //_playerHealthSystem = GetComponent<PlayerHealthSystem>();
+            _playerAnimationController = GetComponent<PlayerAnimationController>();
         }
 
-
+        private void Update()
+        {
+            _playerAnimationController.CheckAttack(_attackInput.AttackKey);
+            _playerAnimationController.SetAnimatorSpeedValue(_playerMovement.GetSpeed(_movementInput.MoveVector3));
+        }
 
         private void FixedUpdate()
         {
