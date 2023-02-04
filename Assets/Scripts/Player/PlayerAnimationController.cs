@@ -7,7 +7,8 @@ namespace Player
     {
         private Animator _animator;
 
-        private const string ATTACK_ANIMATION_SPEED_NAME = "Speed";
+        private const string ANIMATOR_SPEED_NAME = "Speed";
+        private const string ANIMATOR_DEAD_TRIGGER_NAME = "Dead";
         
         private void Awake()
         {
@@ -16,7 +17,12 @@ namespace Player
 
         public void SetAnimatorSpeedValue(float speed)
         {
-            _animator.SetFloat(ATTACK_ANIMATION_SPEED_NAME, speed);
+            _animator.SetFloat(ANIMATOR_SPEED_NAME, speed);
+        }
+
+        public void SetDeadToTrue()
+        {
+            _animator.SetTrigger(ANIMATOR_DEAD_TRIGGER_NAME);
         }
     }
 }
