@@ -8,6 +8,8 @@ namespace Player
         private PlayerLookAt _playerLookAt;
         private PlayerAnimationController _playerAnimationController;
 
+        public LiveState State = LiveState.Alive;
+
         protected override void Awake()
         {
             base.Awake();
@@ -19,13 +21,13 @@ namespace Player
         protected override void OnEnable()
         {
             base.OnEnable();
-            OnDead += _playerAnimationController.SetDeadToTrue;
+            OnDead += _playerAnimationController.TriggerDeadAnim;
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
-            OnDead -= _playerAnimationController.SetDeadToTrue;
+            OnDead -= _playerAnimationController.TriggerDeadAnim;
         }
 
         public override void Die()
@@ -38,6 +40,7 @@ namespace Player
         {
             _playerManager.enabled = false;
             _playerLookAt.enabled = false;
+            State = LiveState.Dead;
         }
     }
 }
