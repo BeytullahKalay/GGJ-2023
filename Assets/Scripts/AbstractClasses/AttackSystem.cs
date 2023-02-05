@@ -4,10 +4,10 @@ namespace AbstractClasses
 {
     public abstract class AttackSystem : MonoBehaviour
     {
-        [SerializeField] private int damage = 25;
-        [SerializeField] private Transform attackPoint;
-        [SerializeField] private float attackPointRadius = 4f;
-        [SerializeField] private LayerMask whatIsHitLayer;
+        [SerializeField] protected int damage = 25;
+        [SerializeField] protected Transform attackPoint;
+        [SerializeField] protected float attackPointRadius = 4f;
+        [SerializeField] protected LayerMask whatIsHitLayer;
 
         // used by animation event
         public virtual void Attack()

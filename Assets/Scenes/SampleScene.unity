@@ -3593,9 +3593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25df2def0795fdd46ac5040170a736a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healLayer:
-    serializedVersion: 2
-    m_Bits: 256
   healAmount: 10
 --- !u!1 &916683572
 GameObject:
@@ -14793,6 +14790,7 @@ MonoBehaviour:
   whatIsHitLayer:
     serializedVersion: 2
     m_Bits: 128
+  knockBackForce: 25
 --- !u!114 &5866666020502992310
 MonoBehaviour:
   m_ObjectHideFlags: 0

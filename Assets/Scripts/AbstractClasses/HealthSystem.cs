@@ -66,5 +66,11 @@ namespace AbstractClasses
             Health = Mathf.Clamp(Health, 0, maxHealth);
             slider.value = (float)Health / maxHealth; 
         }
+
+        public virtual void Knockback(Transform attackTransform, float knocbackForce)
+        {
+            var dir = (transform.position - attackTransform.position).normalized;
+            rb.AddForce(dir * knocbackForce, ForceMode.Impulse);
+        }
     }
 }
