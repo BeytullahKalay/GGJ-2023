@@ -25,6 +25,7 @@ namespace Enemy
             _enemyAnimationController.TriggerDeadAnim();
             _enemyStateManager.enabled = false;
             _navMeshAgent.Stop(true);
+            Destroy(this);
         }
     }
 }
