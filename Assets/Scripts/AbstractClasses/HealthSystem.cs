@@ -59,5 +59,12 @@ namespace AbstractClasses
             slider.gameObject.SetActive(false);
             Debug.Log( transform.name +" is Dead");
         }
+
+        public virtual void Heal(int healAmount)
+        {
+            Health += healAmount;
+            Health = Mathf.Clamp(Health, 0, maxHealth);
+            slider.value = (float)Health / maxHealth; 
+        }
     }
 }
