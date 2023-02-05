@@ -5112,7 +5112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f760aab194b5a5e4d9ce5e8d77d422d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 300
   slider: {fileID: 145922066}
 --- !u!54 &1280665372
 Rigidbody:
@@ -15049,7 +15049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc793af01c294444b8e0bc7fdfd9c592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 55
   attackPoint: {fileID: 250826925}
   attackPointRadius: 1.19
   whatIsHitLayer:
