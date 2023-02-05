@@ -1,4 +1,5 @@
 using AbstractClasses;
+using Managers;
 
 namespace Player
 {
@@ -41,6 +42,7 @@ namespace Player
             _playerManager.enabled = false;
             _playerLookAt.enabled = false;
             State = LiveState.Dead;
+            EventManager.GameOver?.Invoke();
         }
     }
 }

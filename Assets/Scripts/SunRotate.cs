@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Managers;
 using UnityEngine;
 
 public class SunRotate : MonoBehaviour
@@ -8,6 +9,9 @@ public class SunRotate : MonoBehaviour
     
     private void Start()
     {
-        transform.DORotate(desRotation, rotateDuration);
+        transform.DORotate(desRotation, rotateDuration).OnComplete(() =>
+        {
+            EventManager.LevelCompleted?.Invoke();
+        });
     }
 }

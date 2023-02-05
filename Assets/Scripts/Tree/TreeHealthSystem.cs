@@ -1,5 +1,6 @@
 using AbstractClasses;
 using DG.Tweening;
+using Managers;
 using UnityEngine;
 
 namespace Tree
@@ -15,8 +16,8 @@ namespace Tree
         public override void Die()
         {
             base.Die();
-
             Debug.Log("Game Over");
+            EventManager.LevelCompleted?.Invoke();
         }
     }
 }
