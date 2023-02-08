@@ -1,4 +1,5 @@
 using Enemy.State;
+using UnityEngine;
 
 namespace Unit.State
 {
@@ -27,7 +28,9 @@ namespace Unit.State
 
             if (opponentTransform != null)
             {
-                minionStateManager.Agent.SetDestination(opponentTransform.position);
+                minionStateManager.AttackDistance = opponentTransform.localScale.magnitude;
+                
+               minionStateManager.Agent.SetDestination(opponentTransform.position);
             }
             else
             {

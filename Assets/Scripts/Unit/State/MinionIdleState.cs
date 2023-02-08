@@ -6,16 +6,23 @@ namespace Unit.State
     {
         public override void EnterState(MinionStateManager minionStateManager)
         {
-             if (NotAliveOpponent(minionStateManager)) return;
+            if (NotAliveOpponent(minionStateManager)) return;
 
-             minionStateManager.SwitchState(minionStateManager.MoveState);
+            minionStateManager.SwitchState(minionStateManager.MoveState);
         }
 
         public override void UpdateState(MinionStateManager minionStateManager)
         {
             if (NotAliveOpponent(minionStateManager)) return;
-            
-            minionStateManager.SwitchState(minionStateManager.MoveState);
+
+            if (minionStateManager.Agent.remainingDistance <= minionStateManager.AttackDistance)
+            {
+                minionStateManager.SwitchState(minionStateManager.AttackState);
+            }
+            else
+            {
+                minionStateManager.SwitchState(minionStateManager.MoveState);
+            }
         }
 
         private bool NotAliveOpponent(MinionStateManager minionStateManager)

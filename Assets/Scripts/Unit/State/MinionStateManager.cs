@@ -27,7 +27,8 @@ namespace Unit.State
         public MinionAttackSystem MinionAttackSystem { get; private set; }
         public MinionFindOpponent MinionFindOpponent { get; private set; }
         public Animator Animator { get; private set; }
-        public float AttackDistance { get;private set; }
+        public float BaseAttackDistance { get;private set; }
+        public float AttackDistance { get; set; }
 
         private void Awake()
         {
@@ -41,7 +42,9 @@ namespace Unit.State
         private void Start()
         {
             Agent.stoppingDistance =MinionAttackSystem.AttackDistance;
-            AttackDistance = MinionAttackSystem.AttackDistance;
+            BaseAttackDistance = MinionAttackSystem.AttackDistance;
+            AttackDistance = BaseAttackDistance;
+
 
             _currentState = IdleState;
             _currentState.EnterState(this);

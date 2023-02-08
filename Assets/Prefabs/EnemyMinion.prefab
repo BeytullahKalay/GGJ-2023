@@ -761,7 +761,7 @@ MonoBehaviour:
   detectOpponentRadius: 35
   opponentLayer:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 1792
 --- !u!1 &2470795131104910537
 GameObject:
   m_ObjectHideFlags: 0
