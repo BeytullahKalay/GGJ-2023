@@ -19,7 +19,7 @@ namespace AbstractClasses
 
         protected Rigidbody rb;
         protected Collider coll;
-
+        
         protected virtual void OnEnable()
         {
             TakeDamage += GetDamage;

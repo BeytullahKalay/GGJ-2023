@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace Enemy
+namespace Unit
 {
     [RequireComponent(typeof(Animator))]
-    public class EnemyAnimationController : MonoBehaviour
+    public class MinionAnimationController : MonoBehaviour
     {
         private const string ANIMATOR_SPEED_NAME = "Speed";
         private const string ANIMATOR_DEAD_TRIGGER_NAME = "Dead";
