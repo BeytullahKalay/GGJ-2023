@@ -27,5 +27,11 @@ namespace AbstractClasses
 
             Gizmos.DrawWireSphere(attackPoint.position, attackPointRadius);
         }
+
+
+
+        public Transform AttackPoint => attackPoint;
+        public float AttackPointRadius => attackPointRadius;
+        public LayerMask WhatIsHitLayer => whatIsHitLayer;
     }
 }

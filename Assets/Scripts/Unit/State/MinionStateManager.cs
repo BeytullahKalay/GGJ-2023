@@ -1,6 +1,4 @@
 using Enemy.State;
-using Managers;
-using Player;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,33 +15,27 @@ namespace Unit.State
         public MinionMoveState MoveState = new MinionMoveState();
         public MinionAttackState AttackState = new MinionAttackState();
 
-        
-        public NavMeshAgent Agent;
 
 
-        
-        public PlayerHealthSystem PlayerHealthSystem { get; private set; }
+
         public MinionAnimationController MinionAnimationController { get; private set; }
         public MinionAttackSystem MinionAttackSystem { get; private set; }
         public MinionFindOpponent MinionFindOpponent { get; private set; }
-        public Animator Animator { get; private set; }
-        public float BaseAttackDistance { get;private set; }
-        public float AttackDistance { get; set; }
-
+        
+        public NavMeshAgent Agent { get; private set; }
+        
         private void Awake()
         {
-            PlayerHealthSystem = GameManager.Instance.Player.GetComponent<PlayerHealthSystem>();
+            
+            Agent = GetComponent<NavMeshAgent>();
             MinionAnimationController = GetComponent<MinionAnimationController>();
             MinionAttackSystem = GetComponent<MinionAttackSystem>();
             MinionFindOpponent = GetComponent<MinionFindOpponent>();
-            Animator = GetComponent<Animator>();
         }
 
         private void Start()
         {
-            Agent.stoppingDistance =MinionAttackSystem.AttackDistance;
-            BaseAttackDistance = MinionAttackSystem.AttackDistance;
-            AttackDistance = BaseAttackDistance;
+            Agent.stoppingDistance = MinionAttackSystem.AttackDistance;
 
 
             _currentState = IdleState;
@@ -61,7 +53,5 @@ namespace Unit.State
             _currentState = state;
             _currentState.EnterState(this);
         }
-
-
     }
 }

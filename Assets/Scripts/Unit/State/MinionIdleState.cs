@@ -1,4 +1,5 @@
 using Enemy.State;
+using UnityEngine;
 
 namespace Unit.State
 {
@@ -13,9 +14,11 @@ namespace Unit.State
 
         public override void UpdateState(MinionStateManager minionStateManager)
         {
+            Debug.Log(minionStateManager.name + " is on idle update");
+            
             if (NotAliveOpponent(minionStateManager)) return;
 
-            if (minionStateManager.Agent.remainingDistance <= minionStateManager.AttackDistance)
+            if (IsOpponentInRange(minionStateManager))
             {
                 minionStateManager.SwitchState(minionStateManager.AttackState);
             }
@@ -28,6 +31,15 @@ namespace Unit.State
         private bool NotAliveOpponent(MinionStateManager minionStateManager)
         {
             return minionStateManager.MinionFindOpponent.FindClosestOpponent() == null;
+        }
+        
+        private bool IsOpponentInRange(MinionStateManager minionStateManager)
+        {
+            var attackSystem = minionStateManager.MinionAttackSystem;
+            var col = Physics.OverlapSphere(attackSystem.AttackPoint.position, attackSystem.AttackPointRadius,
+                attackSystem.WhatIsHitLayer);
+
+            return col != null;
         }
     }
 }

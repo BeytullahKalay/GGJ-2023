@@ -1,5 +1,6 @@
 using Enemy.State;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Unit.State
 {
@@ -12,7 +13,7 @@ namespace Unit.State
 
         public override void UpdateState(MinionStateManager minionStateManager)
         {
-            if (minionStateManager.Agent.remainingDistance <= minionStateManager.AttackDistance)
+            if (IsOpponentInRange(minionStateManager))
             {
                 minionStateManager.SwitchState(minionStateManager.AttackState);
             }
@@ -28,14 +29,37 @@ namespace Unit.State
 
             if (opponentTransform != null)
             {
-                minionStateManager.AttackDistance = opponentTransform.localScale.magnitude;
                 
-               minionStateManager.Agent.SetDestination(opponentTransform.position);
+                minionStateManager.Agent.SetDestination(opponentTransform.position);
+                
+                //NavMeshHit navMeshHit;
+
+                // if (NavMesh.FindClosestEdge(opponentTransform.position, out navMeshHit, NavMesh.AllAreas))
+                // {
+                //     Debug.Log("Find");
+                //     minionStateManager.Agent.SetDestination(opponentTransform.position);
+                //     minionStateManager.Agent.SetDestination(navMeshHit.position);
+                // }
+
+                // if (NavMesh.SamplePosition(opponentTransform.position, out navMeshHit, 5f, NavMesh.AllAreas))
+                // {
+                //     Debug.Log("Find");
+                //     minionStateManager.Agent.SetDestination(navMeshHit.position);
+                // }
             }
             else
             {
                 minionStateManager.SwitchState(minionStateManager.IdleState);
             }
+        }
+
+        private bool IsOpponentInRange(MinionStateManager minionStateManager)
+        {
+            var attackSystem = minionStateManager.MinionAttackSystem;
+            var col = Physics.OverlapSphere(attackSystem.AttackPoint.position, attackSystem.AttackPointRadius,
+                attackSystem.WhatIsHitLayer);
+
+            return col != null;
         }
     }
 }
