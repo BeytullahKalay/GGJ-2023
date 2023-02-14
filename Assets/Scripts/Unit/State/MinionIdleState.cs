@@ -1,4 +1,3 @@
-using Enemy.State;
 using UnityEngine;
 
 namespace Unit.State
@@ -14,8 +13,6 @@ namespace Unit.State
 
         public override void UpdateState(MinionStateManager minionStateManager)
         {
-            Debug.Log(minionStateManager.name + " is on idle update");
-            
             if (NotAliveOpponent(minionStateManager)) return;
 
             if (IsOpponentInRange(minionStateManager))

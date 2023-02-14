@@ -1,7 +1,5 @@
 
-using Unit.State;
-
-namespace Enemy.State
+namespace Unit.State
 {
     public abstract class MinionBaseState
     {

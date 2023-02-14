@@ -1,8 +1,5 @@
-using System.Linq;
-using Enemy.State;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.tvOS;
 
 namespace Unit.State
 {
