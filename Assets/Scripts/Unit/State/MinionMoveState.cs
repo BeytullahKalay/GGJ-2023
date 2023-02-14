@@ -1,6 +1,8 @@
+using System.Linq;
 using Enemy.State;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.tvOS;
 
 namespace Unit.State
 {
@@ -29,23 +31,26 @@ namespace Unit.State
 
             if (opponentTransform != null)
             {
-                
-                minionStateManager.Agent.SetDestination(opponentTransform.position);
-                
-                //NavMeshHit navMeshHit;
+                var path = new NavMeshPath();
 
-                // if (NavMesh.FindClosestEdge(opponentTransform.position, out navMeshHit, NavMesh.AllAreas))
-                // {
-                //     Debug.Log("Find");
-                //     minionStateManager.Agent.SetDestination(opponentTransform.position);
-                //     minionStateManager.Agent.SetDestination(navMeshHit.position);
-                // }
+                minionStateManager.Agent.CalculatePath(opponentTransform.position, path);
+                
+                if (path.status == NavMeshPathStatus.PathComplete)
+                {
+                    minionStateManager.Agent.SetDestination(opponentTransform.position);
+                }
+                else
+                {
+                    var hit = new NavMeshHit();
 
-                // if (NavMesh.SamplePosition(opponentTransform.position, out navMeshHit, 5f, NavMesh.AllAreas))
-                // {
-                //     Debug.Log("Find");
-                //     minionStateManager.Agent.SetDestination(navMeshHit.position);
-                // }
+                    // go closest point
+
+                    if (NavMesh.SamplePosition(opponentTransform.position, out hit, 20f, NavMesh.AllAreas))
+                    {
+                        //Debug.Log(hit.position);
+                        minionStateManager.Agent.SetDestination(hit.position);
+                    }
+                }
             }
             else
             {

@@ -1160,7 +1160,7 @@ MonoBehaviour:
   whatIsHitLayer:
     serializedVersion: 2
     m_Bits: 1024
-  AttackDistance: 3
+  AttackDistance: 20
   TimeBetweenAttacks: 1.5
   NextAttackTime: -3.4028235e+38
 --- !u!114 &8763769022953242613

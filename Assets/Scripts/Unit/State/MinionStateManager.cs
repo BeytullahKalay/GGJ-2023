@@ -1,3 +1,4 @@
+using AbstractClasses;
 using Enemy.State;
 using UnityEngine;
 using UnityEngine.AI;
@@ -21,13 +22,14 @@ namespace Unit.State
         public MinionAnimationController MinionAnimationController { get; private set; }
         public MinionAttackSystem MinionAttackSystem { get; private set; }
         public MinionFindOpponent MinionFindOpponent { get; private set; }
-        
+        public AttackSystem AttackSystem { get; private set; }
         public NavMeshAgent Agent { get; private set; }
         
         private void Awake()
         {
             
             Agent = GetComponent<NavMeshAgent>();
+            AttackSystem = GetComponent<AttackSystem>();
             MinionAnimationController = GetComponent<MinionAnimationController>();
             MinionAttackSystem = GetComponent<MinionAttackSystem>();
             MinionFindOpponent = GetComponent<MinionFindOpponent>();
