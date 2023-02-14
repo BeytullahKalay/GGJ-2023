@@ -16,7 +16,12 @@ namespace Unit.State
 
         private void AttemptAttack(MinionStateManager minionStateManager)
         {
-            if (Time.time >= minionStateManager.MinionAttackSystem.NextAttackTime)
+            var attackSystem = minionStateManager.AttackSystem;
+            
+            var colliders = Physics.OverlapSphere(attackSystem.AttackPoint.position, attackSystem.AttackPointRadius,
+                attackSystem.WhatIsHitLayer);
+
+            if (Time.time >= minionStateManager.MinionAttackSystem.NextAttackTime && colliders.Length > 0)
             {
                 Debug.Log(minionStateManager.transform.name + " Attack");
                 minionStateManager.MinionAnimationController.TriggerAttackAnim();
