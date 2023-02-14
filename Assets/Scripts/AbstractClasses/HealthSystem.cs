@@ -58,6 +58,7 @@ namespace AbstractClasses
             coll.enabled = false;
             slider.gameObject.SetActive(false);
             Debug.Log( transform.name +" is Dead");
+            gameObject.SetActive(false);
         }
 
         public virtual void Heal(int healAmount)

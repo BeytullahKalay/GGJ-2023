@@ -10,9 +10,15 @@ namespace Witch.State
 
         public override void UpdateState(WitchStateManager witchStateManager)
         {
-            LookAtOpponent(witchStateManager.transform,
-                witchStateManager.MinionFindOpponent.FindClosestOpponent().position);
-            Debug.Log("Attack update");
+            var closestOpponent = witchStateManager.MinionFindOpponent.FindClosestOpponent();
+
+            if (closestOpponent == null)
+            {
+                witchStateManager.SwitchState(witchStateManager.IdleState);
+                return;
+            }
+
+            LookAtOpponent(witchStateManager.transform, closestOpponent.position);
             AttemptAttack(witchStateManager);
         }
 

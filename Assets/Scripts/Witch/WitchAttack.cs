@@ -32,7 +32,6 @@ namespace Witch
 
         public override void Attack()
         {
-            Debug.Log("Attack");
             InitializeSpawnBullet(attackPoint.position);
         }
 
