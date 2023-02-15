@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5941435344267843473}
   - component: {fileID: 5941435344267843472}
   - component: {fileID: 5941435344267843482}
+  - component: {fileID: 473105711301324370}
   m_Layer: 7
   m_Name: WitchEnemy
   m_TagString: Untagged
@@ -129,6 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   slider: {fileID: 2494748911752166764}
+  bloodVFX: {fileID: 6710259948994330187, guid: 76629d047832a09459b0a0593a8bc67a,
+    type: 3}
 --- !u!114 &5941435344267843478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +192,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2a46488e087c949a820866499e1a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &473105711301324370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143856647308089171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f30e8dc01746e904184bf0ad1fc3966a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 3
 --- !u!1 &2046524472798676265
 GameObject:
   m_ObjectHideFlags: 0

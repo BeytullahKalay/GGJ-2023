@@ -1060,6 +1060,7 @@ GameObject:
   - component: {fileID: 6524440010704603940}
   - component: {fileID: 6524440010704603966}
   - component: {fileID: 6524440010704603965}
+  - component: {fileID: 4825170479692663331}
   m_Layer: 9
   m_Name: FriendMinionJack
   m_TagString: Untagged
@@ -1183,6 +1184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 25
   slider: {fileID: 352167311763938543}
+  bloodVFX: {fileID: 6710259948994330187, guid: 76629d047832a09459b0a0593a8bc67a,
+    type: 3}
 --- !u!114 &6524440010704603940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1232,6 +1235,19 @@ MonoBehaviour:
   opponentLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &4825170479692663331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6524440010704603941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f30e8dc01746e904184bf0ad1fc3966a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 3
 --- !u!1 &6709375884352908913
 GameObject:
   m_ObjectHideFlags: 0

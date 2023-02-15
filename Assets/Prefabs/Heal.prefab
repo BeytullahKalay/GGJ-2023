@@ -227,3 +227,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healAmount: 45
+  healVFX: {fileID: 5252790677942037831, guid: b070fe5fc9f233941afbcc6fcde6aa1b, type: 3}

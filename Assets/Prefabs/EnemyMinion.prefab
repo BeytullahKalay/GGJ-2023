@@ -589,6 +589,7 @@ GameObject:
   - component: {fileID: 5586831655082770977}
   - component: {fileID: 5586831655082770976}
   - component: {fileID: 4323768221162574556}
+  - component: {fileID: 3345227961792495195}
   m_Layer: 7
   m_Name: EnemyMinion
   m_TagString: Untagged
@@ -700,6 +701,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   slider: {fileID: 89874137694920849}
+  bloodVFX: {fileID: 6710259948994330187, guid: 76629d047832a09459b0a0593a8bc67a,
+    type: 3}
 --- !u!114 &5586831655082770978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,6 +764,19 @@ MonoBehaviour:
   opponentLayer:
     serializedVersion: 2
     m_Bits: 768
+--- !u!114 &3345227961792495195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162937721112511207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f30e8dc01746e904184bf0ad1fc3966a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 3
 --- !u!1 &2470795131104910537
 GameObject:
   m_ObjectHideFlags: 0

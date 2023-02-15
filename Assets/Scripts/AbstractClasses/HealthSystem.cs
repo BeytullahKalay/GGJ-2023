@@ -1,5 +1,6 @@
 using System;
 using Interfaces;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,9 +9,9 @@ namespace AbstractClasses
     [RequireComponent(typeof(Rigidbody))]
     public abstract class HealthSystem : MonoBehaviour, IHealthSystem
     {
-
         [SerializeField] protected int maxHealth = 100;
         [SerializeField] private Slider slider;
+        [SerializeField] private GameObject bloodVFX;
 
         public int Health { get; set; }
 
@@ -21,7 +22,7 @@ namespace AbstractClasses
         protected Collider coll;
 
         private bool _isDead;
-        
+
         protected virtual void OnEnable()
         {
             TakeDamage += GetDamage;
@@ -51,6 +52,7 @@ namespace AbstractClasses
             Health -= damage;
             Health = Mathf.Clamp(Health, 0, maxHealth);
             slider.value = (float)Health / maxHealth;
+            Instantiate(bloodVFX, transform.position, quaternion.identity);
             if (Health <= 0 && !_isDead) OnDead.Invoke();
         }
 
@@ -66,7 +68,7 @@ namespace AbstractClasses
         {
             Health += healAmount;
             Health = Mathf.Clamp(Health, 0, maxHealth);
-            slider.value = (float)Health / maxHealth; 
+            slider.value = (float)Health / maxHealth;
         }
 
         public virtual void Knockback(Transform attackTransform, float knocbackForce)
