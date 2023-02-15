@@ -2,7 +2,7 @@ using AbstractClasses;
 
 namespace Managers.SpawnManagers
 {
-    public class SpawnAllieManager : SpawnManager
+    public class SpawnUnitAllieManager : SpawnUnitManager
     {
     }
 }

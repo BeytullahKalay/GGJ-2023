@@ -6,13 +6,13 @@ using Random = UnityEngine.Random;
 
 namespace AbstractClasses
 {
-    public abstract class SpawnManager : MonoSingleton<SpawnManager>
+    public abstract class SpawnUnitManager : MonoSingleton<SpawnUnitManager>
     {
         [SerializeField] protected List<GameObject> spawnUnit = new List<GameObject>();
 
-        [SerializeField] private int maxEnemyAmountInLevel = 3;
+        [SerializeField] private int maxUnitAmountInLevel = 3;
 
-        [SerializeField] private float increaseMaxEnemyAmountInSecond = 20f;
+        [SerializeField] private float increaseMaxUnitAmountInSecond = 20f;
         [SerializeField] private float timeBetweenSpawns = 2f;
 
         [SerializeField] private List<Transform> spawnPositions = new List<Transform>();
@@ -33,37 +33,37 @@ namespace AbstractClasses
 
         private void Start()
         {
-            InvokeRepeating("SpawnEnemy", 0, timeBetweenSpawns);
+            InvokeRepeating("SpawnUnit", 0, timeBetweenSpawns);
         }
 
         private void Update()
         {
             if (Time.time > _nextIncreasedTime)
             {
-                maxEnemyAmountInLevel++;
-                _nextIncreasedTime = Time.time + increaseMaxEnemyAmountInSecond;
+                maxUnitAmountInLevel++;
+                _nextIncreasedTime = Time.time + increaseMaxUnitAmountInSecond;
             }
         }
 
-        private void SpawnEnemy()
+        private void SpawnUnit()
         {
-            var aliveCount = CalculateAliveEnemyAmount();
+            var aliveCount = CalculateAliveUnitAmount();
 
-            if (aliveCount > maxEnemyAmountInLevel) return;
+            if (aliveCount > maxUnitAmountInLevel) return;
 
-            var spawnEnemy = GetUnitToSpawn();
-            Vector3 spawnPosition = spawnPositions[Random.Range(0, spawnPositions.Count)].position;
-            var enemy = Instantiate(spawnEnemy, spawnPosition, Quaternion.identity);
-            SpawnedUnits.Add(enemy.transform);
+            var unitToSpawn = GetUnitToSpawn();
+            var spawnPosition = spawnPositions[Random.Range(0, spawnPositions.Count)].position;
+            var unit = Instantiate(unitToSpawn, spawnPosition, Quaternion.identity);
+            SpawnedUnits.Add(unit.transform);
         }
 
-        private int CalculateAliveEnemyAmount()
+        private int CalculateAliveUnitAmount()
         {
             var aliveCount = 0;
 
-            foreach (var spawnedEnemy in SpawnedUnits)
+            foreach (var spawnedUnit in SpawnedUnits)
             {
-                if (spawnedEnemy.TryGetComponent<HealthSystem>(out var healthSystem))
+                if (spawnedUnit.TryGetComponent<HealthSystem>(out var healthSystem))
                 {
                     if(healthSystem.Health <= 0) continue;
                     aliveCount++;
@@ -75,15 +75,15 @@ namespace AbstractClasses
 
         protected virtual GameObject GetUnitToSpawn()
         {
-            var spawnEnemy = spawnUnit[Random.Range(0, spawnUnit.Count)];
-            return spawnEnemy;
+            var unitToSpawn = spawnUnit[Random.Range(0, spawnUnit.Count)];
+            return unitToSpawn;
         }
 
         private void OnLevelComplete()
         {
-            foreach (var enemy in SpawnedUnits)
+            foreach (var unit in SpawnedUnits)
             {
-                enemy.GetComponent<MinionHealthSystem>().Die();
+                unit.GetComponent<MinionHealthSystem>().Die();
                 Destroy(this);
             }
         }

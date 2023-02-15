@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Managers.SpawnManagers
 {
-    public class SpawnEnemyManager : SpawnManager
+    public class SpawnUnitEnemyManager : SpawnUnitManager
     {
         [SerializeField] [Range(0, 1)] private float spawnMinionPercent = .8f;
 
