@@ -23,11 +23,13 @@ namespace EndLevelUI
 
         private void OpenWinCallable()
         {
+            winCallable.gameObject.SetActive(true);
             winCallable.Action?.Invoke();
         }
 
         private void OpenLoseCallable()
         {
+            loseCallable.gameObject.SetActive(true);
             loseCallable.Action?.Invoke();
         }
     }

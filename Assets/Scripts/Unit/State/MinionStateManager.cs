@@ -7,6 +7,7 @@ namespace Unit.State
     [RequireComponent(typeof(MinionAnimationController))]
     [RequireComponent(typeof(MinionFindOpponent))]
     [RequireComponent(typeof(LookAtOpponent))]
+    [RequireComponent(typeof(HealthSystem))]
     public class MinionStateManager : MonoBehaviour
     {
         private MinionBaseState _currentState;
@@ -14,8 +15,7 @@ namespace Unit.State
         public MinionIdleState IdleState = new MinionIdleState();
         public MinionMoveState MoveState = new MinionMoveState();
         public MinionAttackState AttackState = new MinionAttackState();
-
-
+        public MinionDeadState DeadState = new MinionDeadState();
 
 
         public MinionAnimationController MinionAnimationController { get; private set; }
@@ -25,16 +25,18 @@ namespace Unit.State
         public NavMeshAgent Agent { get; private set; }
         public LookAtOpponent LookAtOpponent { get; private set; }
 
-        
+        private HealthSystem _healthSystem;
+
+
         private void Awake()
         {
-            
             Agent = GetComponent<NavMeshAgent>();
             AttackSystem = GetComponent<AttackSystem>();
             MinionAnimationController = GetComponent<MinionAnimationController>();
             MinionAttackSystem = GetComponent<MinionAttackSystem>();
             MinionFindOpponent = GetComponent<MinionFindOpponent>();
             LookAtOpponent = GetComponent<LookAtOpponent>();
+            _healthSystem = GetComponent<HealthSystem>();
         }
 
         private void Start()
@@ -56,6 +58,12 @@ namespace Unit.State
         {
             _currentState = state;
             _currentState.EnterState(this);
+        }
+
+        public void CheckUnitIsDead()
+        {
+            if (_healthSystem.Health <= 0)
+                SwitchState(DeadState);
         }
     }
 }

@@ -28,9 +28,7 @@ namespace Unit
             {
                 _minionStateManager.enabled = false;
             }
-            
-            Destroy(_navMeshAgent);
-            Destroy(this);
+            _navMeshAgent.isStopped = true;
         }
     }
 }

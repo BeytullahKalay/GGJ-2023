@@ -268,7 +268,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &54695894
 Transform:
   m_ObjectHideFlags: 0
@@ -929,7 +929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &185930703
 Transform:
   m_ObjectHideFlags: 0
@@ -965,7 +965,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &228548674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5657,7 +5657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1160701380
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6281,7 +6281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f760aab194b5a5e4d9ce5e8d77d422d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 350
   slider: {fileID: 145922066}
   shakeStrength: 0.75
   shakeDuration: 0.15
@@ -11947,7 +11947,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1429920987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11962,9 +11962,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnUnit:
   - {fileID: 6524440010704603941, guid: 348bce4036f5146489178a927ca91b02, type: 3}
-  maxEnemyAmountInLevel: 3
-  increaseMaxEnemyAmountInSecond: 20
-  timeBetweenSpawns: 10
+  maxEnemyAmountInLevel: 1
+  increaseMaxEnemyAmountInSecond: 40
+  timeBetweenSpawns: 20
   spawnPositions:
   - {fileID: 401543186}
   - {fileID: 885521957}
@@ -14228,7 +14228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1900071786
 RectTransform:
   m_ObjectHideFlags: 0

@@ -63,16 +63,17 @@ namespace AbstractClasses
 
             foreach (var spawnedEnemy in SpawnedUnits)
             {
-                if (!spawnedEnemy.TryGetComponent<HealthSystem>(out var healthSystem)) continue;
-
-                if (healthSystem != null)
+                if (spawnedEnemy.TryGetComponent<HealthSystem>(out var healthSystem))
+                {
+                    if(healthSystem.Health <= 0) continue;
                     aliveCount++;
+                };
             }
 
             return aliveCount;
         }
 
-        public virtual GameObject GetUnitToSpawn()
+        protected virtual GameObject GetUnitToSpawn()
         {
             var spawnEnemy = spawnUnit[Random.Range(0, spawnUnit.Count)];
             return spawnEnemy;

@@ -10,6 +10,8 @@ namespace Witch.State
 
         public override void UpdateState(WitchStateManager witchStateManager)
         {
+            witchStateManager.CheckWitchIsDead();
+
             if (witchStateManager.Agent.remainingDistance <= 1f)
             {
                 witchStateManager.SwitchState(witchStateManager.AttackState);

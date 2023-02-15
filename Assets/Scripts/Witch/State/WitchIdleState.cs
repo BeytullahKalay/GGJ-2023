@@ -4,6 +4,7 @@ namespace Witch.State
     {
         public override void EnterState(WitchStateManager witchStateManager)
         {
+            
             if (NotAliveOpponent(witchStateManager)) return;
             
             witchStateManager.SwitchState(witchStateManager.MoveState);
@@ -11,6 +12,8 @@ namespace Witch.State
 
         public override void UpdateState(WitchStateManager witchStateManager)
         {
+            witchStateManager.CheckWitchIsDead();
+
             if (NotAliveOpponent(witchStateManager)) return;
             
             witchStateManager.SwitchState(witchStateManager.MoveState);

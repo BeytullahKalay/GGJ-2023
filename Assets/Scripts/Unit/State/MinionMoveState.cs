@@ -12,6 +12,8 @@ namespace Unit.State
 
         public override void UpdateState(MinionStateManager minionStateManager)
         {
+            minionStateManager.CheckUnitIsDead();
+            
             if (IsOpponentInRange(minionStateManager))
             {
                 minionStateManager.SwitchState(minionStateManager.AttackState);

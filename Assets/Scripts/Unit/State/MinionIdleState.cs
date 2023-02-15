@@ -13,6 +13,8 @@ namespace Unit.State
 
         public override void UpdateState(MinionStateManager minionStateManager)
         {
+            minionStateManager.CheckUnitIsDead();
+            
             if (NotAliveOpponent(minionStateManager)) return;
 
             if (IsOpponentInRange(minionStateManager))

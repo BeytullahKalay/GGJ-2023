@@ -60,7 +60,6 @@ namespace AbstractClasses
             rb.isKinematic = true;
             coll.enabled = false;
             slider.gameObject.SetActive(false);
-            gameObject.SetActive(false);
         }
 
         public virtual void Heal(int healAmount)

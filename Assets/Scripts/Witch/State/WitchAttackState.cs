@@ -10,6 +10,8 @@ namespace Witch.State
 
         public override void UpdateState(WitchStateManager witchStateManager)
         {
+            witchStateManager.CheckWitchIsDead();
+            
             var closestOpponent = witchStateManager.MinionFindOpponent.FindClosestOpponent();
 
             if (closestOpponent == null)

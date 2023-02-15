@@ -10,6 +10,7 @@ namespace Unit.State
 
         public override void UpdateState(MinionStateManager minionStateManager)
         {
+            minionStateManager.CheckUnitIsDead();
             AttemptAttack(minionStateManager);
         }
 
