@@ -19,6 +19,8 @@ namespace AbstractClasses
 
         protected Rigidbody rb;
         protected Collider coll;
+
+        private bool _isDead;
         
         protected virtual void OnEnable()
         {
@@ -49,15 +51,15 @@ namespace AbstractClasses
             Health -= damage;
             Health = Mathf.Clamp(Health, 0, maxHealth);
             slider.value = (float)Health / maxHealth;
-            if (Health <= 0) OnDead.Invoke();
+            if (Health <= 0 && !_isDead) OnDead.Invoke();
         }
 
         public virtual void Die()
         {
+            _isDead = true;
             rb.isKinematic = true;
             coll.enabled = false;
             slider.gameObject.SetActive(false);
-            Debug.Log( transform.name +" is Dead");
             gameObject.SetActive(false);
         }
 

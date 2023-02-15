@@ -4,9 +4,9 @@ using UnityEngine.AI;
 
 namespace Unit.State
 {
-    [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(MinionAnimationController))]
     [RequireComponent(typeof(MinionFindOpponent))]
+    [RequireComponent(typeof(LookAtOpponent))]
     public class MinionStateManager : MonoBehaviour
     {
         private MinionBaseState _currentState;
@@ -23,6 +23,8 @@ namespace Unit.State
         public MinionFindOpponent MinionFindOpponent { get; private set; }
         public AttackSystem AttackSystem { get; private set; }
         public NavMeshAgent Agent { get; private set; }
+        public LookAtOpponent LookAtOpponent { get; private set; }
+
         
         private void Awake()
         {
@@ -32,6 +34,7 @@ namespace Unit.State
             MinionAnimationController = GetComponent<MinionAnimationController>();
             MinionAttackSystem = GetComponent<MinionAttackSystem>();
             MinionFindOpponent = GetComponent<MinionFindOpponent>();
+            LookAtOpponent = GetComponent<LookAtOpponent>();
         }
 
         private void Start()

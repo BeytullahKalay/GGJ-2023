@@ -23,8 +23,13 @@ namespace Unit
         {
             base.Die();
             _minionAnimationController.TriggerDeadAnim();
-            _minionStateManager.enabled = false;
-            _navMeshAgent.Stop(true);
+
+            if (_minionStateManager != null)
+            {
+                _minionStateManager.enabled = false;
+            }
+            
+            Destroy(_navMeshAgent);
             Destroy(this);
         }
     }

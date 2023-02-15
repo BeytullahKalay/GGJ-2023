@@ -31,20 +31,23 @@ namespace Unit.State
                 var path = new NavMeshPath();
 
                 minionStateManager.Agent.CalculatePath(opponentTransform.position, path);
-                
+
+                if (minionStateManager.Agent.remainingDistance <= minionStateManager.Agent.stoppingDistance)
+                {
+                    minionStateManager.LookAtOpponent.LookAt(opponentTransform.position);
+                }
+
                 if (path.status == NavMeshPathStatus.PathComplete)
                 {
                     minionStateManager.Agent.SetDestination(opponentTransform.position);
+                    
                 }
                 else
                 {
                     var hit = new NavMeshHit();
-
-                    // go closest point
-
+                    
                     if (NavMesh.SamplePosition(opponentTransform.position, out hit, 20f, NavMesh.AllAreas))
                     {
-                        //Debug.Log(hit.position);
                         minionStateManager.Agent.SetDestination(hit.position);
                     }
                 }

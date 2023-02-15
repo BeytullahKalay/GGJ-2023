@@ -1181,7 +1181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d5e58ea580e574fa5e14bc67809e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 25
   slider: {fileID: 352167311763938543}
 --- !u!114 &6524440010704603940
 MonoBehaviour:
@@ -1216,7 +1216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d71e3b12feec44a80e190e58c62a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Agent: {fileID: 6524440010704603937}
 --- !u!114 &6524440010704603965
 MonoBehaviour:
   m_ObjectHideFlags: 0

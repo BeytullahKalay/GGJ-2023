@@ -8,7 +8,7 @@ namespace AbstractClasses
 {
     public abstract class SpawnManager : MonoSingleton<SpawnManager>
     {
-        [SerializeField] private List<GameObject> spawnUnit = new List<GameObject>();
+        [SerializeField] protected List<GameObject> spawnUnit = new List<GameObject>();
 
         [SerializeField] private int maxEnemyAmountInLevel = 3;
 
@@ -51,7 +51,7 @@ namespace AbstractClasses
 
             if (aliveCount > maxEnemyAmountInLevel) return;
 
-            var spawnEnemy = GetEnemyToSpawn();
+            var spawnEnemy = GetUnitToSpawn();
             Vector3 spawnPosition = spawnPositions[Random.Range(0, spawnPositions.Count)].position;
             var enemy = Instantiate(spawnEnemy, spawnPosition, Quaternion.identity);
             SpawnedUnits.Add(enemy.transform);
@@ -72,7 +72,7 @@ namespace AbstractClasses
             return aliveCount;
         }
 
-        public virtual GameObject GetEnemyToSpawn()
+        public virtual GameObject GetUnitToSpawn()
         {
             var spawnEnemy = spawnUnit[Random.Range(0, spawnUnit.Count)];
             return spawnEnemy;

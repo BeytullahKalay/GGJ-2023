@@ -9,11 +9,11 @@ namespace Managers.SpawnManagers
 
         [SerializeField] private Transform enemyMinionGameObject;
 
-        public override GameObject GetEnemyToSpawn()
+        public override GameObject GetUnitToSpawn()
         {
             var val = Random.value;
             var spawnEnemy = val > spawnMinionPercent
-                ? SpawnedUnits[Random.Range(0, SpawnedUnits.Count)]
+                ? spawnUnit[Random.Range(0, spawnUnit.Count)].transform
                 : enemyMinionGameObject;
             return spawnEnemy.gameObject;
         }

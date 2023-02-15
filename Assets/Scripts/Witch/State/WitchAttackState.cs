@@ -18,7 +18,8 @@ namespace Witch.State
                 return;
             }
 
-            LookAtOpponent(witchStateManager.transform, closestOpponent.position);
+            //LookAtOpponent(witchStateManager.transform, closestOpponent.position);
+            witchStateManager.LookAtOpponent.LookAt(closestOpponent.position);
             AttemptAttack(witchStateManager);
         }
 
@@ -33,11 +34,11 @@ namespace Witch.State
             }
         }
 
-        private void LookAtOpponent(Transform witchStateTransform, Vector3 opponentPos)
-        {
-            var direction = opponentPos - witchStateTransform.position;
-            direction.y = 0;
-            witchStateTransform.forward = Vector3.Lerp(witchStateTransform.forward, direction, 5 * Time.deltaTime);
-        }
+        // private void LookAtOpponent(Transform witchStateTransform, Vector3 opponentPos)
+        // {
+        //     var direction = opponentPos - witchStateTransform.position;
+        //     direction.y = 0;
+        //     witchStateTransform.forward = Vector3.Lerp(witchStateTransform.forward, direction, 5 * Time.deltaTime);
+        // }
     }
 }

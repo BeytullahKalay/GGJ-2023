@@ -22,7 +22,6 @@ namespace Unit.State
 
             if (Time.time >= minionStateManager.MinionAttackSystem.NextAttackTime && colliders.Length > 0)
             {
-                Debug.Log(minionStateManager.transform.name + " Attack");
                 minionStateManager.MinionAnimationController.TriggerAttackAnim();
                 minionStateManager.MinionAttackSystem.NextAttackTime =
                     Time.time + minionStateManager.MinionAttackSystem.TimeBetweenAttacks;

@@ -5,8 +5,8 @@ using UnityEngine.AI;
 namespace Witch.State
 {
     [RequireComponent(typeof(MinionFindOpponent))]
-    [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(WitchAttack))]
+    [RequireComponent(typeof(LookAtOpponent))]
     public class WitchStateManager : MonoBehaviour
     {
         private WitchBaseState _currentState;
@@ -19,6 +19,7 @@ namespace Witch.State
         public MinionFindOpponent MinionFindOpponent { get; private set; }
         public NavMeshAgent Agent { get; private set; }
         public WitchAttack WitchAttack { get; private set; }
+        public LookAtOpponent LookAtOpponent { get; private set; }
 
         private void Awake()
         {
@@ -26,6 +27,7 @@ namespace Witch.State
             WitchAttack = GetComponent<WitchAttack>();
             MinionAnimationController = GetComponent<MinionAnimationController>();
             MinionFindOpponent = GetComponent<MinionFindOpponent>();
+            LookAtOpponent = GetComponent<LookAtOpponent>();
         }
 
         private void Start()
