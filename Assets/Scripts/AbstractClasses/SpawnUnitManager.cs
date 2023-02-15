@@ -23,12 +23,12 @@ namespace AbstractClasses
 
         private void OnEnable()
         {
-            EventManager.LevelCompleted += OnLevelComplete;
+            EventManager.SunRaised += OnLevelComplete;
         }
 
         private void OnDisable()
         {
-            EventManager.LevelCompleted -= OnLevelComplete;
+            EventManager.SunRaised -= OnLevelComplete;
         }
 
         private void Start()
@@ -65,9 +65,9 @@ namespace AbstractClasses
             {
                 if (spawnedUnit.TryGetComponent<HealthSystem>(out var healthSystem))
                 {
-                    if(healthSystem.Health <= 0) continue;
+                    if (healthSystem.Health <= 0) continue;
                     aliveCount++;
-                };
+                }
             }
 
             return aliveCount;
@@ -81,11 +81,8 @@ namespace AbstractClasses
 
         private void OnLevelComplete()
         {
-            foreach (var unit in SpawnedUnits)
-            {
-                unit.GetComponent<MinionHealthSystem>().Die();
-                Destroy(this);
-            }
+            CancelInvoke();
+            Destroy(this);
         }
     }
 }
